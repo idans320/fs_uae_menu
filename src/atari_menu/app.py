@@ -3,6 +3,7 @@ from atari_menu.config import Config
 
 from simple_term_menu import TerminalMenu
 import subprocess
+import os 
 
 def start_exec():
     cmd = Config.cmd
