@@ -12,7 +12,7 @@ class GameInterface:
         with get_session() as session:
             models = (
                 session.query(Game).where(
-                    func.substr(Game.name, 1, 1) > f
+                    func.substr(Game.name, 1, 1) >= f
                     ,func.substr(Game.name, 1, 1) < l
                 )
             ).all()

@@ -6,7 +6,7 @@ import subprocess
 
 def start_exec():
     cmd = Config.cmd
-    subprocess.run(cmd)
+    subprocess.run(cmd.split(" "), stdout=open(os.devnull, 'wb')))
     main()
 
 def games_selection_menu():
