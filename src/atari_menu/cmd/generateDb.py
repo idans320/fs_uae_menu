@@ -38,5 +38,3 @@ def run(path):
             filenames.add(game_image)
             session.add(gameimg)
             session.commit()
-
-run("D:\Downloads\Games")

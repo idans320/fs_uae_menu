@@ -29,6 +29,7 @@ class ConfigType:
         return super().__getattribute__(attr)
 
 class _Config(ConfigType):
-    db_url : ConfigKey = ConfigKey(default="sqlite://",path="db.connection_string")
-    floppy_file : ConfigKey = ConfigKey(path="files.floppy")
+    db_url : str = ConfigKey(default="sqlite://",path="db.connection_string")
+    floppy_file : str = ConfigKey(path="files.floppy")
+    cmd : str = ConfigKey(path="exec")
 Config = _Config()

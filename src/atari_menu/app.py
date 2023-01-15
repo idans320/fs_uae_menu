@@ -1,6 +1,13 @@
 from atari_menu.games import GameInterface
-from simple_term_menu import TerminalMenu
+from atari_menu.config import Config
 
+from simple_term_menu import TerminalMenu
+import subprocess
+
+def start_exec():
+    cmd = Config.cmd
+    subprocess.run(cmd)
+    main()
 
 def games_selection_menu():
     options = ["0-9","A-C","D-F","G-I","J-L","M-O","P-R","S-U","V-X","Y-Z"]
@@ -76,6 +83,8 @@ def main():
         games_selection_menu()
     if option == "Selected Games":
         selected_games()
+    if option == "Start":
+        start_exec()
         
 
 
