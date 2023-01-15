@@ -11,7 +11,8 @@ cpu_throttle=30000.0
 cpu_type=68040
 accuracy = -1
 amiga_model = A1000
-graphics_card = uaegfx-z3'''
+graphics_card = uaegfx-z3
+'''
 
 class GameInterface:
     @staticmethod
