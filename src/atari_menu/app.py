@@ -36,15 +36,15 @@ def games_selection_by_characters(f,l):
         preselected_entries=selected
     )
     menu_entry_indices = terminal_menu.show()
-    if menu_entry_indices:
-        enabled = [games[i] for i in menu_entry_indices]
-        disabled = [game for game in games if game not in enabled]
-        GameInterface.save_selection_to_db(enabled,disabled)
-    else:
-        GameInterface.save_selection_to_db([],games)
-    
-    GameInterface.save_selection_to_config_file()
-    
+    if menu_entry_indices is not None:
+        if menu_entry_indices:
+            enabled = [games[i] for i in menu_entry_indices]
+            disabled = [game for game in games if game not in enabled]
+            GameInterface.save_selection_to_db(enabled,disabled)
+        else:
+            GameInterface.save_selection_to_db([],games)
+        GameInterface.save_selection_to_config_file()
+        
     games_selection_menu()
 
 def selected_games():
@@ -60,14 +60,14 @@ def selected_games():
         preselected_entries=selected
     )
     menu_entry_indices = terminal_menu.show()
-    if menu_entry_indices:
-        enabled = [games[i] for i in menu_entry_indices]
-        disabled = [game for game in games if game not in enabled]
-        GameInterface.save_selection_to_db(enabled,disabled)
-    else:
-        GameInterface.save_selection_to_db([],games)
-    
-    GameInterface.save_selection_to_config_file()
+    if menu_entry_indices is not None:
+        if menu_entry_indices:
+            enabled = [games[i] for i in menu_entry_indices]
+            disabled = [game for game in games if game not in enabled]
+            GameInterface.save_selection_to_db(enabled,disabled)
+        else:
+            GameInterface.save_selection_to_db([],games)
+        GameInterface.save_selection_to_config_file()
 
     main()
 

@@ -6,6 +6,13 @@ from typing import List
 from atari_menu.config import Config
 from pathlib import Path
 
+FS_UAE_CONFIG = '''cpu_speed=max
+cpu_throttle=30000.0
+cpu_type=68040
+accuracy = -1
+amiga_model = A1000
+graphics_card = uaegfx-z3'''
+
 class GameInterface:
     @staticmethod
     def get_games_by_first_character_range(f, l) -> List[Game]:
@@ -50,6 +57,7 @@ class GameInterface:
             ).all()
             config_file : str = Config.floppy_file
             with open(config_file,'w') as f:
+                f.write(FS_UAE_CONFIG)
                 for index, game in enumerate(games):
                     for image in game.images:
                         game_path = str(Path(game.directory_name) / image.path)

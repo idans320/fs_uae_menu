@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import click
 from atari_menu.cmd import generateDb
 from click_default_group import DefaultGroup
