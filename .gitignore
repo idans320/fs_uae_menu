@@ -51,3 +51,10 @@ MANIFEST
 # Per-project virtualenvs
 .venv*/
 .conda*/
+
+# Config files
+config.yml
+
+# Ignore db files
+
+*.db
