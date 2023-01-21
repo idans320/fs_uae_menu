@@ -6,12 +6,10 @@ from typing import List
 from atari_menu.config import Config
 from pathlib import Path
 
-FS_UAE_CONFIG = '''cpu_speed=max
-cpu_throttle=30000.0
-cpu_type=68040
-accuracy = -1
-graphics_card = uaegfx-z3
-'''
+def get_additional_config():
+    additional_config_file = Config.additional_config
+    with open(additional_config_file,'r') as f:
+        return f.read()
 
 class GameInterface:
     @staticmethod
@@ -57,7 +55,8 @@ class GameInterface:
             ).all()
             config_file : str = Config.floppy_file
             with open(config_file,'w') as f:
-                f.write(FS_UAE_CONFIG)
+                f.write(get_additional_config())
+                f.write("\n")
                 index = 0
                 for game in games:
                     for image in game.images:

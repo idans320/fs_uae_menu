@@ -32,4 +32,5 @@ class _Config(ConfigType):
     db_url : str = ConfigKey(default="sqlite://",path="db.connection_string")
     floppy_file : str = ConfigKey(path="files.floppy")
     cmd : str = ConfigKey(path="exec")
+    additional_config : str = ConfigKey(path="additional_config_file")
 Config = _Config()
