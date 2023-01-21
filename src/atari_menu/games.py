@@ -58,7 +58,9 @@ class GameInterface:
             config_file : str = Config.floppy_file
             with open(config_file,'w') as f:
                 f.write(FS_UAE_CONFIG)
-                for index, game in enumerate(games):
+                index = 0
+                for game in games:
                     for image in game.images:
                         game_path = str(Path(game.directory_name) / image.path)
                         f.write(f"floppy_image_{index}={game_path}\n")
+                        index += 1
